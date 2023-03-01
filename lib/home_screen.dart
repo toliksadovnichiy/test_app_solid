@@ -12,9 +12,16 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   Color _backgroundColor = Colors.white;
+  List<Color> _colorList = [];
   int _startColorRange = 0;
-  int _endColorRange = Colors.primaries.length;
+  int _endColorRange = 0;
 
+  @override
+  void initState() {
+    _colorList = _generateColorList();
+    _endColorRange = _colorList.length-1;
+    super.initState();
+  }
   @override
   Widget build(BuildContext context) {
     return InkWell(
@@ -46,6 +53,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       _endColorRange = values.end.toInt();
                     });
                   },
+                  colorList: _colorList,
                 ),
               ),
             ],
@@ -58,9 +66,18 @@ class _HomeScreenState extends State<HomeScreen> {
   void _generateRandomColorInRange(int start, int end) {
     setState(() {
       _backgroundColor = start != end
-          ? Colors.primaries[start +
-              Random().nextInt(end - start)]
-          : Colors.primaries[start];
+          ? _colorList[start + Random().nextInt(end - start)]
+          : _colorList[start];
     });
+  }
+
+  List<Color> _generateColorList() {
+    final List<Color> colorList = [];
+
+    for (double h = 0.0; h < 360.0; h += 0.5) {
+      colorList.add(HSLColor.fromAHSL(1.0, h, 1.0, 0.5).toColor());
+    }
+
+    return colorList;
   }
 }
