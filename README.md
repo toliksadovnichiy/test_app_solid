@@ -1,16 +1,8 @@
 # test_app
 
-A new test Flutter project.
+A test Flutter Project 
 
-## Getting Started
+This app allows to user change screen background color randomy, by tapint the screen.
+Also was added feature to select the color range in witch colors will generated.
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Made by Anatolii Sadovnychyi
